@@ -9,7 +9,8 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Badge from "@material-ui/core/Badge";
 
 // styles
-import { Wrapper, StyledButton } from "./app.styles";
+import { Wrapper, HeaderContainer, Header } from "./app.styles";
+import IconButton from "@material-ui/core/IconButton";
 
 import Item from "./item/item";
 import Cart from "./cart/cart";
@@ -71,6 +72,7 @@ function App() {
 
   if (isLoading) return <LinearProgress />;
   if (error) return <div>Something went wrong</div>;
+
   return (
     <Wrapper>
       <Drawer anchor="right" open={cartOpen} onClose={() => setCartOpen(false)}>
@@ -81,15 +83,18 @@ function App() {
         />
       </Drawer>
 
-      <StyledButton onClick={() => setCartOpen(true)}>
-        <Badge badgeContent={() => getTotalItems(cartItems)} color="error">
-          <AddShoppingCartIcon />
-        </Badge>
-      </StyledButton>
+      <HeaderContainer>
+        <Header>Shopping Cart</Header>
+        <IconButton onClick={() => setCartOpen(true)}>
+          <Badge badgeContent={() => getTotalItems(cartItems)} color="error">
+            <AddShoppingCartIcon />
+          </Badge>
+        </IconButton>
+      </HeaderContainer>
 
       <Grid container spacing={3}>
         {data?.map((item) => (
-          <Grid item key={item.id} xs={12} sm={4}>
+          <Grid item key={item.id} lg={4} sm={6} xs={12}>
             <Item item={item} handleAddToCart={handleAddToCart} />
           </Grid>
         ))}

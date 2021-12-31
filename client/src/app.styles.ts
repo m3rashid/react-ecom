@@ -1,25 +1,27 @@
 import styled from "styled-components";
-import IconButton from "@material-ui/core/IconButton"
 
 export const Wrapper = styled.div`
-  margin-top: 40px
-
-  @media (min-width: 400px) {
-      margin: 0 10px;
+  margin-top: 40px @media (min-width: 400px) {
+    margin: 0 10px;
   }
 
   @media (min-width: 800px) {
-      margin: 0 25px;
+    margin: 0 25px;
   }
 
   @media (min-width: 1200px) {
-      margin: 0 50px;
+    margin: 0 50px;
   }
 `;
 
-export const StyledButton = styled(IconButton)`
-  position: fixed;
-  z-index: 100;
-  right: 20px;
-  top: 20px;
+export const HeaderContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+`;
+
+export const Header = styled.h1`
+  font-family: "Roboto", sans-serif;
 `;
