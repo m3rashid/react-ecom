@@ -1,20 +1,20 @@
-import React from 'react'
+import React from "react";
 
 // styles
-import Button from "@material-ui/core/Button"
-import { Wrapper } from "./items.styles"
+import Button from "@material-ui/core/Button";
+import { Wrapper } from "./items.styles";
 
 // types
-import { CartItemType } from "../App"
+import { CartItemType } from "../App";
 
 type Props = {
-  item: CartItemType,
+  item: CartItemType;
   handleAddToCart: (clickedItem: CartItemType) => void;
-}
+};
 
-const Item: React.FC<Props> = ({item, handleAddToCart}) => (
+const Item: React.FC<Props> = ({ item, handleAddToCart }) => (
   <Wrapper>
-    <img  src={item.image} alt={item.title} />
+    <img src={item.image} alt={item.title} />
     <div>
       <h3>{item.title}</h3>
       <p>{item.description}</p>
@@ -22,6 +22,6 @@ const Item: React.FC<Props> = ({item, handleAddToCart}) => (
     </div>
     <Button onClick={() => handleAddToCart(item)}>Add to Cart</Button>
   </Wrapper>
-)
+);
 
-export default Item
+export default Item;

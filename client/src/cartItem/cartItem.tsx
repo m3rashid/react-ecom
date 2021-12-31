@@ -1,20 +1,19 @@
-import React from 'react'
+import React from "react";
 
-import Button from "@material-ui/core/Button"
+import Button from "@material-ui/core/Button";
 
-import { CartItemType } from "../App"
+import { CartItemType } from "../App";
 
-import { Wrapper } from "./cartItem.styles"
-import Item from '../item/item'
-
+import { Wrapper } from "./cartItem.styles";
+import Item from "../item/item";
 
 type Props = {
   item: CartItemType;
   addToCart: (clickedItem: CartItemType) => void;
   removeFromCart: (id: number) => void;
-}
+};
 
-const CartItem: React.FC<Props> = ({item, addToCart, removeFromCart}) => {
+const CartItem: React.FC<Props> = ({ item, addToCart, removeFromCart }) => {
   return (
     <Wrapper>
       <div>
@@ -23,25 +22,29 @@ const CartItem: React.FC<Props> = ({item, addToCart, removeFromCart}) => {
           <p>Price: ${item.price}</p>
           <p>Total: ${(item.amount * item.price).toFixed(2)}</p>
         </div>
-        <div className='buttons'>
-          <Button 
+        <div className="buttons">
+          <Button
             size="small"
             disableElevation
             variant="contained"
             onClick={() => removeFromCart(item.id)}
-          >-</Button>
+          >
+            -
+          </Button>
           <p>{item.amount}</p>
-          <Button 
+          <Button
             size="small"
             disableElevation
             variant="contained"
             onClick={() => addToCart(item)}
-          >+</Button>
+          >
+            +
+          </Button>
         </div>
       </div>
       <img src={item.image} alt={item.title} />
     </Wrapper>
-  )
-}
+  );
+};
 
 export default CartItem;
